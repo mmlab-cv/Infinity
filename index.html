@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="To Infinity and Beyond 🚀: a GPU-driven memory sharing pipeline to generate and process infinite synthetic data">
+  <meta name="keywords" content="GPU, Unreal Engine, Memory Sharing, VRAM, RAM, Deep Learning, AI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To Infinity and Beyond 🚀</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-PMXG52KP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'GTM-PMXG52KP');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="http://mmlabsites.disi.unitn.it/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/mmlab-cv/">
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">To Infinity and Beyond 🚀: a GPU-driven memory sharing pipeline to generate and process infinite synthetic data</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=s9d0TmgAAAAJ&hl=en">Daniele Della Pietra</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/mmlab-cv/">Gino Lanzo Hahn</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.it/citations?user=r8BzAfcAAAAJ&hl=en">Nicola Garau</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Trento,</span>
+            <span class="author-block"><sup>2</sup>CNIT</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/assets/Infinity_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Short PDF Link. -->
+              <span class="link-block">
+                <a href="static/assets/Infinity_short_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Short Paper</span>
+                </a>
+              </span>
+              <!-- Poster Link. -->
+              <span class="link-block">
+                <a href="static/assets/Infinity_poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/mmlab-cv/Infinity"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/4x/infinity_teaser.png"
+            alt="Teaser image."/>
+      <h2 class="subtitle has-text-centered">
+        Overview of a typical synthetic data generation pipeline <b>(a)</b> and data processing via an algorithm or neural network <b>(b)</b>, versus our fast unified synthetic data generation and processing pipeline <b>(c)</b>.
+      </p>  
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            <i>What if data generation, manipulation, and training could all happen entirely on the GPU, without ever touching the RAM or the CPU?</i>
+          </p>  
+          <p>
+            In this work, we present a novel pipeline based on Unreal Engine 5, which allows us to generate, render, and process graphics data entirely on the GPU. 
+          </p>  
+          <p>  
+            By keeping the data stored in GPU memory throughout all the steps, we bypass the traditional bottlenecks related to CPU-GPU transfers, significantly accelerating data manipulation and enabling fast training of deep learning algorithms.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <!-- Training. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Demo</h2>
+          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/Videos/SIGGRAPH25Demo.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Training. -->
+    </div>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Motivation. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation</h2>
+        <div class="content has-text-justified">
+          <p>
+            The typical workflow—(1) build 3D scenes in a game engine, (2) render and write its data to disk, and finally (3) use that static data as input to an algorithm or neural network—suffers from repeated CPU–GPU round-trips and I/O stalls.
+          </p>  
+          <p>
+            The main bottleneck of this approach is usually the storage, which can contain a finite amount of static data, with a reduced access speed from the graphics hardware. 
+          </p>  
+          <p>  
+            Our contribution is twofold: (i) generating an infinite amount of data in real-time on the GPU, and (ii) consuming it without storing it anywhere, bypassing the delays due to storage access.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Motivation. -->
+  </div>
+</section>
+
+
+<!-- Use Cases -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Use Cases</h2>
+        <div class="content has-text-justified">
+          <p>
+            Multi-camera sharing of images and character rig.
+          </p>
+          <img src="./static/images/4x/infinity_qualitative_1.png"
+               alt="Qualitative results 1."/>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Real-time rendering and sharing of a complex scenario.
+          </p>
+          <img src="./static/images/4x/infinity_qualitative_2.png"
+               alt="Qualitative results 1."/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            Quantitative results on three separate tasks, averaged over 1000 iterations.
+          </p>
+          <img src="./static/images/4x/infinity_results.png"
+               alt="Results."/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{10.1145/3721250.3742983,
+  author = {Della Pietra, Daniele and Lanzo Hahn, Gino and Garau, Nicola},
+  title = {To Infinity and Beyond: a GPU-driven memory sharing pipeline to generate and process infinite synthetic data},
+  year = {2025},
+  isbn = {9798400715495},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3721250.3742983},
+  doi = {10.1145/3721250.3742983},
+  abstract = {What if data generation, manipulation, and training could all happen entirely on the GPU, without ever touching the RAM or the CPU? In this work, we present a novel pipeline based on Unreal Engine 5, which allows us to generate, render, and process graphics data entirely on the GPU. By keeping the data stored in GPU memory throughout all the steps, we bypass the traditional bottlenecks related to CPU-GPU transfers, significantly accelerating data manipulation and enabling fast training of deep learning algorithms. Traditional storage systems impose latency and capacity limitations, which become increasingly problematic as data volume increases. Our method demonstrates substantial performance improvements on multiple benchmarks, offering a new paradigm for integrating game engines with data-driven applications.},
+  booktitle = {ACM SIGGRAPH 2025 Posters},
+  articleno = {17},
+  numpages = {2},
+  keywords = {Facial Animation, Multi-modal, Rigging},
+  location = {Vancouver, BC, Canada},
+  series = {SIGGRAPH '25}
+}
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            We thank the authors of <a href="https://nerfies.github.io/">Nerfies</a> that kindly open sourced the template of this website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
